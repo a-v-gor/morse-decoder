@@ -37,6 +37,11 @@ const MORSE_TABLE = {
   '-----':  '0',
 };
 
+const DOT_DASH = {
+  '10': '.',
+  '11': '-',
+};
+
 // Убирает нули в начале буквы
 function removeStartNulls (str) {
 while (str.startsWith('00')) {
@@ -51,14 +56,9 @@ let arr = [];
 while (str) {
   let letter = str.slice(0,2);
   str = str.slice(2);
-  arr.push(returnDotsDashes(letter));
+  arr.push(DOT_DASH[letter]);
 };
 return arr.join('');
-}
-
-// Переводит цифры в точки-тире
-function returnDotsDashes (str) {
-return (str == 10) ? '.' : '-';
 }
 
 // Основная функция
